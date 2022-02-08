@@ -13,7 +13,7 @@ public class Product implements Serializable {
 
     @PrimaryKey
     private PrimaryKeyClass pk;
-/*
+
     @Column(value = "product_id")
     @CassandraType(type = Name.UUID)
     private UUID productId;
@@ -25,7 +25,7 @@ public class Product implements Serializable {
     @Column(value = "name")
     @CassandraType(type = Name.TEXT)
     private String name;
-*/
+
     @Column(value = "item_category")
     @CassandraType(type = Name.TEXT)
     private String itemCategory;
