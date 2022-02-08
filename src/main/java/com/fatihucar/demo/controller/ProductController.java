@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -24,11 +25,10 @@ public class ProductController {
 
     }
 
-    @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable(value = "id") Integer id)
+    @GetMapping("/products/{product_id}")
+    public ResponseEntity<List<Product>> getProductById(@PathVariable(value = "product_id") UUID productID)
     throws ResourceNotFoundException{
-        final Product product = productRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Product not found " + id));
+        final List<Product> product = productRepository.findByKeyProductId(productID);
         return ResponseEntity.ok(product);
     }
 
@@ -38,21 +38,4 @@ public class ProductController {
         return productRepository.findAll();
     }
 
-    @PutMapping("/products/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") Integer productId,
-                                                 @RequestBody Product productDetails){
-        Product product = productRepository.findById(productId).orElseThrow(
-                () -> new ResourceNotFoundException("Product not found" + productId));
-        product.setName(productDetails.getName());
-        final Product updatedProduct = productRepository.save(product);
-        return ResponseEntity.ok().body(product);
-    }
-
-    @DeleteMapping("/products/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable(value = "id") Integer productId){
-        Product product = productRepository.findById(productId).orElseThrow(
-                () -> new ResourceNotFoundException("Resource not found" + productId));
-        productRepository.delete(product);
-        return ResponseEntity.ok().build();
-    }
 }
