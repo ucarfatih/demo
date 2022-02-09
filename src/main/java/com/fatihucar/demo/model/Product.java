@@ -1,5 +1,8 @@
 package com.fatihucar.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.cassandra.core.mapping.*;
 import org.springframework.data.cassandra.core.mapping.CassandraType.Name;
 
@@ -9,7 +12,9 @@ import java.util.UUID;
 
 
 @Table("Product")
-public class Product implements Serializable {
+@Getter
+@Setter
+public class Product {
 
     @PrimaryKey
     private PrimaryKeyClass pk;
@@ -34,23 +39,4 @@ public class Product implements Serializable {
     @CassandraType(type = Name.INT)
     private int price;
 
-    public void setPk(PrimaryKeyClass pk) {
-        this.pk = pk;
-    }
-
-    public String getItemCategory() {
-        return itemCategory;
-    }
-
-    public void setItemCategory(String itemCategory) {
-        this.itemCategory = itemCategory;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 }
