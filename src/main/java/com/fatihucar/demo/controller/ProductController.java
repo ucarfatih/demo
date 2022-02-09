@@ -22,15 +22,14 @@ public class ProductController {
     public Product addProduct(@RequestBody Product product){
         productRepository.save(product);
         return product;
-
     }
-
+/*
     @GetMapping("/products/{product_id}")
     public ResponseEntity<List<Product>> getProductById(@PathVariable(value = "product_id") UUID productID)
     throws ResourceNotFoundException{
         final List<Product> product = productRepository.findByKeyProductId(productID);
         return ResponseEntity.ok(product);
-    }
+    }*/
 
     @GetMapping("/products")
     public List<Product> getProducts(){

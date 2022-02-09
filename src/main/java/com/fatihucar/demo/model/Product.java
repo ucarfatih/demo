@@ -2,13 +2,13 @@ package com.fatihucar.demo.model;
 
 import org.springframework.data.cassandra.core.mapping.*;
 import org.springframework.data.cassandra.core.mapping.CassandraType.Name;
-import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 
+import javax.annotation.sql.DataSourceDefinitions;
 import java.io.Serializable;
 import java.util.UUID;
 
 
-@Table("product")
+@Table("Product")
 public class Product implements Serializable {
 
     @PrimaryKey

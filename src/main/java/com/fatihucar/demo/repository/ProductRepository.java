@@ -3,17 +3,16 @@ package com.fatihucar.demo.repository;
 import com.fatihucar.demo.model.PrimaryKeyClass;
 import com.fatihucar.demo.model.Product;
 import org.springframework.data.cassandra.repository.CassandraRepository;
-import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
 //@EnableCassandraRepositories
 @Repository
 public interface ProductRepository extends CassandraRepository<Product, PrimaryKeyClass> {
 
-    List<Product> findByKeyProductId(final UUID productId);
+ /*   List<Product> findByKeyProductId(final UUID productId);
 
     List<Product> findByKeySerialNumber(final UUID serialNumber);
 
@@ -23,5 +22,5 @@ public interface ProductRepository extends CassandraRepository<Product, PrimaryK
 
     List<Product> findByKeyProductIdAndKeySerialNumberAndName(final UUID productId, final UUID serialNumber,
                                                               final String name);
-
+*/
 }
