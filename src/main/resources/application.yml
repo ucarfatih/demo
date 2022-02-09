@@ -3,5 +3,6 @@ spring:
     cassandra:
       local-datacenter: datacenter1
       keyspace-name: mykeyspace
-      contact-points: localhost
+      contact-points: 127.0.0.1
       port: 9042
+      schemaAction: CREATE_IF_NOT_EXISTS

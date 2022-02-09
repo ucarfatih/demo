@@ -58,34 +58,3 @@ public class PrimaryKeyClass implements Serializable {
         return Objects.hash(productId, serialNumber, name);
     }
 }
-
-/*@Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((eventTime == null) ? 0 : eventTime.hashCode());
-    result = prime * result + ((personId == null) ? 0 : personId.hashCode());
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    LoginEventKey other = (LoginEventKey) obj;
-    if (eventTime == null) {
-      if (other.eventTime != null)
-        return false;
-    } else if (!eventTime.equals(other.eventTime))
-      return false;
-    if (personId == null) {
-      if (other.personId != null)
-        return false;
-    } else if (!personId.equals(other.personId))
-      return false;
-    return true;
-  }*/
